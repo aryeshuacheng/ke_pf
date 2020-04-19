@@ -1,0 +1,33 @@
+<%= javascript_pack_tag 'application' %>
+
+<h2> Karma Epic 401(k) Projector</h2>
+
+<% if Account.where(user_id: current_user.id).present? %>
+
+  <table class="table table-bordered table-striped table-sm">
+    <thead>
+      <tr>
+        <th scope="col">Year</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Interest Gain</th>
+        <th scope="col">Inflation Loss</th>
+        <th scope="col">Balance in Today's Dollars</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @projection[:yearly_balance_summary].each_with_index do |balance,index| %>
+        <tr>
+          <td><%= @projection[:years][index] %></td>
+          <td><%= number_to_currency(balance, precision: 0) %></td>
+          <td><%= number_to_currency(@projection[:yearly_interest_summary][index], precision: 0) %></td>
+          <td><%= number_to_currency(@projection[:yearly_inflation_summary][index], precision: 0) %></td>
+          <td><%= number_to_currency(@projection[:balance_after_inflation][index], precision: 0) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2>Graph</h2>
+  <%= high_chart("some_id", @chart) %>
+
+<% end %>

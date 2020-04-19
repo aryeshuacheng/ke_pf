@@ -1,0 +1,9 @@
+<h2>401k</h2>
+<%= form_with(url: "/accounts/update", method: "post") do %>
+  Initial Balance: <%= text_field_tag :initial_balance, @account.initial_balance %>
+  Annual Rate of Return (%): <%= text_field_tag :annual_roi_percentage, @account.annual_roi_percentage %>
+  Annual Contribution Amount: <%= text_field_tag :annual_contribution, @account.annual_contribution %>
+  <%= submit_tag %>
+<% end %>
+<h2>RothIRA</h2>
+<h2>Stocks</h2>

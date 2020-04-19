@@ -1,0 +1,11 @@
+<h2>Welcome and congratulations on joining the next-gen personal finance spot!</h2>
+<br>
+<br>
+First, we need to set up a few variables!
+
+<%= form_with(url: "/accounts/create", method: "post") do %>
+  Initial Balance: <%= text_field_tag(:initial_balance) %>
+  Annual ROI: <%= text_field_tag(:annual_roi_percentage) %>
+  Annual Contribution: <%= text_field_tag(:annual_contribution) %>
+  <%= submit_tag %>
+<% end %>
