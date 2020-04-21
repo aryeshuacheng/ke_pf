@@ -22,6 +22,8 @@ class AccountsController < ApplicationController
 
     redirect_to dashboard_index_url
   end
+  def update_roth
+  end
 
   private
 
