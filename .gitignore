@@ -39,3 +39,6 @@ yarn-debug.log*
 /config/master.key
 
 # Ignore IDEA
+# Ignore VisualStudio
+/.gitignore
+config/database.yml
