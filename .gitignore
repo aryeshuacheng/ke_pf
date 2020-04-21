@@ -43,5 +43,6 @@ yarn-debug.log*
 
 # Ignore IDEA
 # Ignore VisualStudio
-/.gitignore
-config/database.yml
+#
+
+
