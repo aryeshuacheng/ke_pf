@@ -8,7 +8,7 @@ class Account < ApplicationRecord
 
   def calculate_projection(user)
     years_remaining = user.retirement_age - (Date.current.year - user.birth_year)
-    years_of_inflation = 1
+    years_of_inflation = 0
     years_summary = []
     yearly_balance_summary = []
     yearly_inflation_summary = []
@@ -21,6 +21,8 @@ class Account < ApplicationRecord
 
       if years_of_inflation == 1
         balance_with_interest = (self.initial_balance * ( 1 + (annual_roi_percent/12))**(12)) + self.annual_contribution
+      elsif years_of_inflation == 0
+        balance_with_interest = (self.initial_balance)
       else
         balance_with_interest = (yearly_balance_summary.last * ( 1 + (annual_roi_percent/12))**(12)) + self.annual_contribution
       end
