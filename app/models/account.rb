@@ -31,7 +31,7 @@ class Account < ApplicationRecord
       interest_amount = balance_with_interest - balance_without_interest
 
       if years_of_inflation > 0
-        inflation_amount = balance_with_interest * ( 1 - (AVERAGE_INFLATION_RATE))**(years_of_inflation+1) # Make take off +1
+        inflation_amount = balance_with_interest * ( 1 - (AVERAGE_INFLATION_RATE))**(years_of_inflation)
       elsif years_of_inflation == 0
         inflation_amount = self.initial_balance
       end
